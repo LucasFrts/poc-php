@@ -11,8 +11,9 @@ class SecondService {
 
     
     public function __construct(
-        private FirstService $service
-    ) {}
+        private FirstService $service = new FirstService
+    ){}
+    
     public function handle()
     {
         return $this->service->execute();
@@ -20,6 +21,6 @@ class SecondService {
 
 }
 
-$secondService = new SecondService(new FirstService);
+$secondService = new SecondService();
 
 echo $secondService->handle();
